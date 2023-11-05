@@ -2,7 +2,7 @@ import feedparser
 import json
 # https://edition.cnn.com/services/rss/
 # Parse the RSS feed
-feed = feedparser.parse('http://feeds.feedburner.com/com/Yeor')
+feed = feedparser.parse('http://rss.cnn.com/rss/edition_world.rss')
 
 # Convert the parsed RSS feed to JSON
 json_feed = json.dumps(feed, ensure_ascii=False)
