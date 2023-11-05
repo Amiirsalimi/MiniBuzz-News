@@ -1,292 +1,445 @@
-<!DOCTYPE html>
-{% load i18n %}
+﻿<!DOCTYPE html>
+<html lang="en">
+{% load static %}
 
-<!-- <html lang="en"> -->
-<html lang="{{ request.LANGUAGE_CODE }}">
-
+<!-- Mirrored from www.cizthemes.com/template/mazpage/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Nov 2023 07:26:52 GMT -->
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Codescandy">
-  {% load static %}
-  <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon/favicon.ico' %}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
-
-  <!-- Libs CSS -->
-  <link href="{% static 'libs/bootstrap-icons/font/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'libs/@mdi/font/css/materialdesignicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'libs/simplebar/dist/simplebar.min.css' %}" rel="stylesheet">
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  <!-- Theme CSS -->
-  <link rel="stylesheet" href="{% static 'css/theme.min.css' %}">
-  <!-- dropzone -->
-  <link href="{% static 'libs/dropzone/dist/dropzone.css' %}" rel="stylesheet">
-  <title>Opare</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="congnd91">
+    <title>MazPage - Magazine, News, Blog, Shop, Newspaper Template</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Online Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="stylesheet" />
+    <!-- Vender -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/swiper.min.css' %}" rel="stylesheet" />
+    <!-- Main CSS (SCSS Compile) -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    <!-- JavaScripts -->
+    <!--<script src="js/modernizr.js"></script>-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-
 <body>
-  <!-- Wrapper -->
-  <main id="main-wrapper" class="main-wrapper">
-    <div class="header">
-      <!-- navbar -->
-      <div class="navbar-custom navbar navbar-expand-lg">
-        <div class="container-fluid px-0">
-          <a class="navbar-brand d-block d-md-none" href="/">
-            <img src="{% static 'images/brand/logo/opera-logo.png' %}" alt="Image">
-          </a>
-
-          <a id="nav-toggle" href="/" class="ms-auto ms-md-0 me-0 me-lg-3 ">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-              class="bi bi-text-indent-left text-muted" viewBox="0 0 16 16">
-              <path
-                d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-            </svg></a>
-
-          <div class="d-none d-md-none d-lg-block">
-            <!-- Form -->
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownNotification" data-bs-toggle="dropdown" aria-expanded="false">
-                Language 
-                {% comment %} <i class="icon-xs" data-feather="bell"></i> {% endcomment %}
-              </button>
-            </div>
-          </div>
-          <!--Navbar nav -->
-          <ul class="navbar-nav navbar-right-wrap ms-lg-auto d-flex nav-top-wrap align-items-center ms-4 ms-lg-0">
-            <a href="#" class="form-check form-switch theme-switch btn btn-ghost btn-icon rounded-circle mb-0 ">
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-              <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-
-            </a>
-            </li>
-
-            <!-- List -->
-            <li class="dropdown ms-2">
-              <a class="rounded-circle" href="#!" role="button" id="dropdownUser" data-bs-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <div class="avatar avatar-md avatar-indicators avatar-online">
-                  {% comment %} <img alt="avatar" src="{% static 'images/avatar/avatar-11.jpg' %}" class="rounded-circle"> {% endcomment %}
-                  {% if user.is_authenticated %}
-                      {% with profile=user.userprofile %}
-                          {% if profile.profile_picture %}
-                              {% comment %} <img src="{{ profile.profile_picture.url }}" alt="Profile Picture"> {% endcomment %}
-                              <img alt="avatar" src="{{ profile.profile_picture.url }}" class="rounded-circle">
-                          {% else %}
-                              <img alt="avatar" src="{% static 'images/avatar/default.jpg' %}" class="rounded-circle">
-                          {% endif %}
-                      {% endwith %}
-                  {% else %}
-                  <img alt="avatar" src="{% static 'images/avatar/default.jpg' %}" class="rounded-circle">
-                  {% endif %}
-
-                </div>
-              </a>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
-                {% if user.is_authenticated %}
-
-                <div class="px-4 pb-0 pt-2">
-                  <div class="lh-1 ">
-                    <h5 class="mb-1"> {{ user.username }} </h5>
-                    <a href="{% url 'userprofile:user-profile' username=user.username %}" class="text-inherit fs-6">{% trans "Profile" %}</a>
-                  </div>
-                  <div class=" dropdown-divider mt-3 mb-2"></div>
-                </div>
-                {% endif %}
-                <ul class="list-unstyled">
-                  {% comment %} {% if user.is_authenticated %}
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center"
-                      href="{% url 'userprofile:user-profile' username=user.username %}">
-                      <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>
-
-                      {% trans "Profile" %}
+    <!--menu mobile-->
+    <nav class="menu-res hidden-lg hidden-md ">
+        <div class="menu-res-inner">
+            <ul>
+                <li class="menu-item-has-children">
+                    <a href="index.html"> Home </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="index.html">Default style</a>
+                        </li>
+                        <li>
+                            <a href="index-menu.html">Menu visible</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="index-grid.html">Home grid</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="index-grid.html">Grid normal</a>
+                                </li>
+                                <li>
+                                    <a href="index-grid-large.html">Grid large</a>
+                                </li>
+                                <li>
+                                    <a href="index-grid-small.html">Grid small </a>
+                                </li>
+                                <li>
+                                    <a href="index-grid-sidebar.html">Grid sidebar </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="index-masonry.html">Home masonry</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="index-masonry.html">Masonry normal</a>
+                                </li>
+                                <li>
+                                    <a href="index-masonry-large.html">Masonry large</a>
+                                </li>
+                                <li>
+                                    <a href="index-masonry-small.html">Masonry small </a>
+                                </li>
+                                <li>
+                                    <a href="index-masonry-sidebar.html">Masonry sidebar </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="index-slider.html">Home Slider </a>
+                        </li>
+                        <li>
+                            <a href="index-sidebar-left.html">Sidebar Left </a>
+                        </li>
+                        <li>
+                            <a href="index-background.html">Home Background </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="category.html">
+                        Category
                     </a>
-                  </li>
-                  {% endif %} {% endcomment %}
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="category.html">Category default</a>
+                        </li>
+                        <li>
+                            <a href="category-small.html">Category small </a>
+                        </li>
+                        <li>
+                            <a href="category-grid.html">Category grid </a>
+                        </li>
+                        <li>
+                            <a href="category-masonry.html">Category masonry </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="single.html">Single<span></span></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="single.html">Default style</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="single-thum-large.html">Single Feature</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="single-thum-large.html">Feature image format </a>
+                                </li>
+                                <li>
+                                    <a href="single-gallery.html">Gallery format</a>
+                                </li>
+                                <li>
+                                    <a href="single-gallery1.html">Gallery format I</a>
+                                </li>
+                                <li>
+                                    <a href="single-video.html">Video format</a>
+                                </li>
 
-                  {% if user.is_authenticated %}
-                  <li>
-                    <a class="dropdown-item" href="/accounts/logout/">
-                      <i class="me-2 icon-xxs dropdown-item-icon" data-feather="power"></i>Sign Out
-                    </a>
-                  </li>
-                  {% else %}
-                  <li>
-                    <a class="dropdown-item" href="/accounts/signup/">
-                      <i class="me-2 icon-xxs dropdown-item-icon" data-feather="power"></i>Sign Up
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/accounts/login/">
-                      <i class="me-2 icon-xxs dropdown-item-icon" data-feather="power"></i>Sign In
-                    </a>
-                  </li>
-                  {% endif %}
-                </ul>
-
-              </div>
-            </li>
-          </ul>
+                                <li>
+                                    <a href="single-audio.html">Music format </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="single-fullwidth.html">Full width</a>
+                        </li>
+                        <li>
+                            <a href="single-fullwidth-special.html">Single special</a>
+                        </li>
+                        <li>
+                            <a href="single-fullwidth-three-column.html">Single three columns</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="about.html">Pages<span></span></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="about.html">About me</a>
+                        </li>
+                        <li>
+                            <a href="404.html">Page 404</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="gallery.html"> Gallery</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="shop.html">SHOP<span></span></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="shop.html">Shop Default</a>
+                        </li>
+                        <li>
+                            <a href="shop-sidebar.html">Shop  Sidebar</a>
+                        </li>
+                        <li>
+                            <a href="shop-sidebar-large.html">Shop Sidebar Large</a>
+                        </li>
+                        <li>
+                            <a href="shop-single.html"> Shop Single</a>
+                        </li>
+                        <li>
+                            <a href="cart.html"> Shop Cart</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-      </div>
+    </nav>
+    <!--preload-->
+    <div class="loader" id="page-loader">
+        <div class="loading-wrapper">
+            <p>Loading<span>.</span><span>.</span><span>.</span></p>
+        </div>
     </div>
-
-    <!-- navbar vertical -->
-    <!-- Sidebar -->
-
-    <div class="navbar-vertical navbar nav-dashboard">
-      <div class="h-100" data-simplebar>
-        <!-- Brand logo -->
-        <a class="navbar-brand" href="/">
-          <img src="{% static 'images/brand/logo/opera-logo.png' %}" alt="Opare">
-        </a>
-        <!-- Navbar nav -->
-        <ul class="navbar-nav flex-column" id="sideNavbar">
-
-          <!-- Home -->
-          <li class="nav-item">
-            <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navHome"
-              aria-expanded="false" aria-controls="navDashboard">
-              <i data-feather="home" class="nav-icon me-2 icon-xxs"></i>
-              {% trans "Home" %}
-            </a>
-
-            <div id="navHome" class="collapse " data-bs-parent="#sideNavbar">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link " href="/howtouse/">
-                    {% trans "How to use" %}
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="/aboutopera/">
-                    {% trans "About Opera" %}
-                  </a>
-                </li>
-
-              </ul>
+    <!--page-->
+    <div class="page">
+        <div class="mobile-bar hidden-lg hidden-md">
+            <div class="menu-icon-mobile hidden-lg hidden-md">
+                <i class="fa fa-navicon"></i>
+                <span>MENU</span>
             </div>
-
-          </li>
-
-          {% if user.is_authenticated %}
-          <!-- Activity -->
-          <li class="nav-item">
-            <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navDashboard"
-              aria-expanded="false" aria-controls="navDashboard">
-              <i data-feather="edit" class="nav-icon me-2 icon-xxs"></i>
-              {% trans "ToolBox" %}
-            </a>
-
-            <div id="navDashboard" class="collapse " data-bs-parent="#sideNavbar">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link " href="/request_activity/">
-                    {% trans "Create AI Activity" %}
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="/new/">
-                    {% trans "Create Manual Activity" %}
-                  </a>
-                </li>
-
-              </ul>
+            <div class="search-icon-mobile">
+                <i class="fa fa-search"></i>
             </div>
-
-          </li>
-
-          <!-- Nav item -->
-          <li class="nav-item">
-            <div class="navbar-heading">{% trans "Account" %}</div>
-          </li>
-          <!-- Nav item -->
-          {% endif %}
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link has-arrow " href="{% url 'userprofile:user-profile' username=user.username %}">
-              <i data-feather="user" class="nav-icon me-2 icon-xxs">
-              </i> {% trans "Profile" %}
+            <div class="search-box-mobile">
+                <form>
+                    <input type="search" value="" placeholder="Begin typing..." class="txt-search">
+                </form>
+            </div>
+        </div>
+        <div class="logo-show">
+            <a href="#" class="logo">
+                <img alt="" src="images/logo1.png" />
             </a>
-            <a class="nav-link has-arrow " href="/accounts/logout/">
-              <i data-feather="calendar" class="nav-icon me-2 icon-xxs">
-              </i> {% trans "Sign Out" %}
-            </a>
-          </li>
-          {% else %}
-          <!-- Nav item -->
-          <li class="nav-item">
-            <a class="nav-link has-arrow " href="/accounts/signup/">
-              <i data-feather="message-square" class="nav-icon me-2 icon-xxs">
-              </i> {% trans "Sign Up" %}
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link has-arrow " href="/accounts/login/">
-              <i data-feather="message-square" class="nav-icon me-2 icon-xxs">
-              </i> {% trans "Sign In" %}
-            </a>
-          </li>
-          {% endif %}
+        </div>
 
+        <nav class="menu-main menu-show hidden-sm hidden-xs">
+            <div class="menu-main-inner">
+                <ul class="hidden-sm hidden-xs">
+                    <li class="menu-item-has-children">
+                        <a href="index.html"><i class="fa fa-home"></i> Home </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="index.html">Default style</a>
+                            </li>
+                            <li>
+                                <a href="index-menu.html">Menu visible</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="index-grid.html">Home grid</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="index-grid.html">Grid normal</a>
+                                    </li>
+                                    <li>
+                                        <a href="index-grid-large.html">Grid large</a>
+                                    </li>
+                                    <li>
+                                        <a href="index-grid-small.html">Grid small </a>
+                                    </li>
+                                    <li>
+                                        <a href="index-grid-sidebar.html">Grid sidebar </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="index-masonry.html">Home masonry</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="index-masonry.html">Masonry normal</a>
+                                    </li>
+                                    <li>
+                                        <a href="index-masonry-large.html">Masonry large</a>
+                                    </li>
+                                    <li>
+                                        <a href="index-masonry-small.html">Masonry small </a>
+                                    </li>
+                                    <li>
+                                        <a href="index-masonry-sidebar.html">Masonry sidebar </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="index-slider.html">Home Slider </a>
+                            </li>
+                            <li>
+                                <a href="index-sidebar-left.html">Sidebar Left </a>
+                            </li>
+                            <li>
+                                <a href="index-background.html">Home Background </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="category.html">
+                            Category
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="category.html">Category default</a>
+                            </li>
+                            <li>
+                                <a href="category-small.html">Category small </a>
+                            </li>
+                            <li>
+                                <a href="category-grid.html">Category grid </a>
+                            </li>
+                            <li>
+                                <a href="category-masonry.html">Category masonry </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="single.html">Single<span></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="single.html">Default style</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="single-thum-large.html">Single Feature</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="single-thum-large.html">Feature image format </a>
+                                    </li>
+                                    <li>
+                                        <a href="single-gallery.html">Gallery format</a>
+                                    </li>
+                                    <li>
+                                        <a href="single-gallery1.html">Gallery format I</a>
+                                    </li>
+                                    <li>
+                                        <a href="single-video.html">Video format</a>
+                                    </li>
 
-        </ul>
+                                    <li>
+                                        <a href="single-audio.html">Music format </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="single-fullwidth.html">Full width</a>
+                            </li>
+                            <li>
+                                <a href="single-fullwidth-special.html">Single special</a>
+                            </li>
+                            <li>
+                                <a href="single-fullwidth-three-column.html">Single three columns</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="about.html">Pages<span></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="about.html">About me</a>
+                            </li>
+                            <li>
+                                <a href="404.html">Page 404</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contact us</a>
+                            </li>
+                            <li>
+                                <a href="gallery.html"> Gallery</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="shop.html">SHOP<span></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="shop.html">Shop Default</a>
+                            </li>
+                            <li>
+                                <a href="shop-sidebar.html">Shop  Sidebar</a>
+                            </li>
+                            <li>
+                                <a href="shop-sidebar-large.html">Shop Sidebar Large</a>
+                            </li>
+                            <li>
+                                <a href="shop-single.html"> Shop Single</a>
+                            </li>
+                            <li>
+                                <a href="cart.html"> Shop Cart</a>
+                            </li>
+                        </ul>
+                    </li>
 
-
-      </div>
-    </div>
-
-    <!-- Page Content -->
-    <div id="app-content">
-      <div class="app-content-area">
-        <div class="container-fluid">
-
-          <div class="row align-items-center">
+                </ul>
+                <div class="search-icon">
+                    <i class="fa fa-search"></i>
+                </div>
+                <div class="search-box">
+                    <form>
+                        <input type="search" value="" placeholder="Begin typing..." class="txt-search">
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!--wrapper-->
+        <div class="wrapper">
             {% block content %}
             {% endblock %}
-          </div>
         </div>
-      </div>
+
+        <!--footer-->
+        <footer class="footer">
+            <a href="#" class="logo">
+                <img alt="" src="images/logo1.png" />
+            </a>
+            <div class="footer-bar">
+                <div class="allright">
+                    <p> All rights reserved. Designed by <a href="#"> CizThemes</a></p>
+                </div>
+                <div class="social-footer">
+                    <a href="#" class="facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" class="twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="google">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                    <a href="#" class="pinterest">
+                        <i class="fa fa-pinterest"></i>
+                    </a>
+                    <a href="#" class="youtube">
+                        <i class="fa fa-youtube"></i>
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </footer>
     </div>
-    <!-- Page Content End -->
-  </main>
+    <!--go to top-->
+    <span class="totop">
+        Go to
+        <em>TOP</em>
+    </span>
+    
+    <!--scrip file-->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'js/jquery.matchHeight.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            setTimeout(function() {
 
-  <!-- vendor -->
-  <!-- dropzone -->
-  <script src="{% static 'libs/dropzone/dist/min/dropzone.min.js' %}"></script>
-  <!-- flatpickr -->
-  <script src="{% static 'libs/flatpickr/dist/flatpickr.min.js' %}"></script>
-  <!-- quill js -->
-  <script src="{% static 'libs/quill/dist/quill.min.js' %}"></script>
-
-  <!-- Libs JS -->
-  <script src="{% static 'libs/jquery/dist/jquery.min.js' %}"></script>
-  <script src="{% static 'libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'libs/feather-icons/dist/feather.min.js' %}"></script>
-  <script src="{% static 'libs/simplebar/dist/simplebar.min.js' %}"></script>
-
-  <!-- Theme JS -->
-  <script src="{% static 'js/theme.min.js' %}"></script>
-  <!-- popper js -->
-  <script src="{% static 'libs/@popperjs/core/dist/umd/popper.min.js' %}"></script>
-  <!-- tippy js -->
-  <script src="{% static 'libs/tippy.js/dist/tippy-bundle.umd.min.js' %}"></script>
-  <script src="{% static 'js/vendors/tooltip.js' %}"></script>
-  <script src="{% static 'libs/jQuery.print/jQuery.print.js' %}"></script>
-  <!-- <script>
-    $(document).ready(function() {
-        $('#language-select').change(function() {
-            var langCode = $(this).val();
-            var url = window.location.pathname;
-            var updatedUrl = url.replace(/^\/([a-z]{2})\//, '/' + langCode + '/');
-            window.location.href = updatedUrl;
+                $('.nd-carrer').addClass("show-nd-carrer");
+            }, 5000);
+            $('.nd-carrer-close').click(function() {
+                $('.nd-carrer').removeClass("show-nd-carrer");
+            });
         });
-    });
-  </script> -->
+
+    </script>
 </body>
 
+<!-- Mirrored from www.cizthemes.com/template/mazpage/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Nov 2023 07:26:58 GMT -->
 </html>
