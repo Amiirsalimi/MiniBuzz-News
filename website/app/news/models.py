@@ -4,6 +4,7 @@ from django.db import models
 
 class NewsEntry(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
+    news_type = models.CharField(max_length=255, null=True, blank=True)
     link = models.URLField(null=True, blank=True)
     published = models.DateTimeField(null=True, blank=True)
     summary = models.TextField(null=True, blank=True)
