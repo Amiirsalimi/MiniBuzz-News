@@ -9,6 +9,10 @@ class NewsEntry(models.Model):
     published = models.DateTimeField(null=True, blank=True)
     summary = models.TextField(null=True, blank=True)
     media_content = models.JSONField(null=True, blank=True)
+    # Add created_at and updated_at fields
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
 
     def __str__(self):
         return self.title

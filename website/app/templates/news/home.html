@@ -12,14 +12,15 @@
                     PREV
                 </div>
                 <div class="swiper-wrapper">
+                    {% for top_new in top_news %}
                     <div class="swiper-slide">
                         <article class="big-sticky-post">
                             <div class="post-meta">
                                 <span class="post-date">
-                                    JUNE 01,  2017
+                                    {{ top_new.published }}
                                 </span>
                                 <span class="post-category">
-                                    <a href="#">The World</a>
+                                    <a href="#">{{ top_new.news_type }}</a>
                                 </span>
                             </div>
                             <div class="ciz-thumb">
@@ -28,65 +29,16 @@
                                 </a>
                             </div>
                             <h1>
-                                <a href="single-fullwidth-three-column.html">
-                                    The beautifull girl.
+                                <a  target="_blank"  href={{top_new.link}}>
+                                    {{ top_new.title }}
                                 </a>
                             </h1>
                             <div class="post-des">
-                                <p>Sed porttitor lectus nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Sed porttitor lectus nibh. Sed porttitor lectus nibh. </p>
+                                <p>{{ top_new.summary }}</p>
                             </div>
                         </article>
                     </div>
-                    <div class="swiper-slide">
-                        <article class="big-sticky-post">
-                            <div class="post-meta">
-                                <span class="post-date">
-                                    Mar 01, 2017
-                                </span>
-                                <span class="post-category">
-                                    <a href="#">Life style</a>
-                                </span>
-                            </div>
-                            <div class="post-thumb">
-                                <a href="single-thum-large.html">
-                                    <img alt="" src="images/s6.jpg" />
-                                </a>
-                            </div>
-                            <h1>
-                                <a href="single-thum-large.html">
-                                    First Special News Here!
-                                </a>
-                            </h1>
-                            <div class="post-des">
-                                <p>Sed porttitor lectus nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Sed porttitor lectus nibh. Sed porttitor lectus nibh. </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="swiper-slide">
-                        <article class="big-sticky-post">
-                            <div class="post-meta">
-                                <span class="post-date">
-                                    Mar 01, 2017
-                                </span>
-                                <span class="post-category">
-                                    <a href="#">Life style</a>
-                                </span>
-                            </div>
-                            <div class="ciz-thumb">
-                                <a href="single-video.html">
-                                    <img alt="" src="images/s1.jpg" />
-                                </a>
-                            </div>
-                            <h1>
-                                <a href="single-video.html">
-                                    Simply dummy text
-                                </a>
-                            </h1>
-                            <div class="post-des">
-                                <p>Sed porttitor lectus nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Sed porttitor lectus nibh. Sed porttitor lectus nibh. </p>
-                            </div>
-                        </article>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
