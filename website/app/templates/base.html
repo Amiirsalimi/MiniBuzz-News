@@ -277,6 +277,7 @@
                             </li>
                         </ul>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="menu-item-has-children">
                         <a href="single.html">local News<span></span></a>
                         <ul class="sub-menu">
@@ -315,6 +316,7 @@
                             </li>
                         </ul>
                     </li>
+                    {% endif %}
 
                     <li class="menu-item-has-children">
                         <a href="shop.html">Account<span></span></a>
