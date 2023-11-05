@@ -201,7 +201,7 @@
             <div class="menu-main-inner">
                 <ul class="hidden-sm hidden-xs">
                     <li class="menu-item-has-children">
-                        <a href="index.html"><i class="fa fa-home"></i> Home </a>
+                        <a href="/"><i class="fa fa-home"></i> Home </a>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="category.html">
@@ -319,21 +319,18 @@
                     <li class="menu-item-has-children">
                         <a href="shop.html">Account<span></span></a>
                         <ul class="sub-menu">
+                            {% if user.is_authenticated %}
                             <li>
-                                <a href="shop.html">Shop Default</a>
+                                <a href="/accounts/logout/">Sign Out</a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="/accounts/signup/">Signup</a>
                             </li>
                             <li>
-                                <a href="shop-sidebar.html">Shop  Sidebar</a>
+                                <a href="/accounts/login/">Login</a>
                             </li>
-                            <li>
-                                <a href="shop-sidebar-large.html">Shop Sidebar Large</a>
-                            </li>
-                            <li>
-                                <a href="shop-single.html"> Shop Single</a>
-                            </li>
-                            <li>
-                                <a href="cart.html"> Shop Cart</a>
-                            </li>
+                            {% endif %}
                         </ul>
                     </li>
 
