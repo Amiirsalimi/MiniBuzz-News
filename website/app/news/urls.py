@@ -6,7 +6,5 @@ app_name = "news"
 
 urlpatterns = [
     path("", views.home, name="home"),
-    # path('', views.ActivityListCreateView.as_view(), name='news_list'),
-
-
+    path('news/<str:news_type>/', views.news_by_type, name='news_by_type'),
 ]
