@@ -2,6 +2,11 @@ from django.shortcuts import render
 from .models import NewsEntry
 from random import randint
 from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, ListView
+from .forms import NewsEntryForm
+
 
 
 def filter_media_images(media_content):
@@ -57,3 +62,33 @@ def news_by_type(request, news_type):
     }
     
     return render(request, "news/news.html", context)
+class NewsEntryListView(ListView):
+    model = NewsEntry
+    template_name = 'news_entry_list.html'
+
+class NewsEntryCreateView(LoginRequiredMixin, CreateView):
+    model = NewsEntry
+    template_name = 'news/news_entry_form.html'
+    success_url = reverse_lazy('news:home')
+    form_class = NewsEntryForm
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+# class NewsEntryUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+#     model = NewsEntry
+#     template_name = 'news_entry_form.html'
+#     form_class = NewsEntryForm
+    
+#     def test_func(self):
+#         return self.get_object().user == self.request.user
+
+
+# class NewsEntryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+#     model = NewsEntry
+#     template_name = 'news_entry_confirm_delete.html'
+#     success_url = reverse_lazy('news-entry-list')
+    
+#     def test_func(self):
+#         return self.get_object().user == self.request.user
