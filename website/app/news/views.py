@@ -23,8 +23,10 @@ def add_url(top_news):
 
 # Create your views here.
 def home(request):
-    top_news = NewsEntry.objects.order_by('-published')[:3].values()
+    top_news = NewsEntry.objects.order_by('-published')[:7].values()
     top_news = add_url(top_news)
-    return render(request, "news/home.html", context={"top_news":top_news})
+    hightlight = NewsEntry.objects.order_by('-created_at')[:3].values()
+    hightlight = add_url(hightlight)
+    return render(request, "news/home.html", context={"top_news":top_news, "hightlight":hightlight})
 
 
