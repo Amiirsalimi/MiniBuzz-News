@@ -41,7 +41,7 @@ def home(request):
 def news_by_type(request, news_type):
     # Query NewsEntry objects with the given news_type
     news_data = NewsEntry.objects.filter(news_type=news_type).order_by('-published').values()
-    news_data = select_image(news_data)
+    news_data = add_url(news_data)
     # Create a Paginator instance with a specified number of items per page
     items_per_page = 10  # You can adjust this to your preferred number of items per page
     paginator = Paginator(news_data, items_per_page)
