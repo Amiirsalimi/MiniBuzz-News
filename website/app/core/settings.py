@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-m8y0d4iqepey3wp$e1d%s-p5wuz)l^k5qi531xbh+730na8!b(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["minibuzz.herokuapp.com","*"]
 CSRF_TRUSTED_ORIGINS = [
     'https://amiirsalimi-minibuzznew-70e3ee1oncn.ws-eu106.gitpod.io/',
     "https://8000-amiirsalimi-minibuzznew-70e3ee1oncn.ws-eu106.gitpod.io"
@@ -66,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
