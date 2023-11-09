@@ -25,8 +25,17 @@ SECRET_KEY = 'django-insecure-m8y0d4iqepey3wp$e1d%s-p5wuz)l^k5qi531xbh+730na8!b(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = [
+    'https://amiirsalimi-minibuzznew-70e3ee1oncn.ws-eu106.gitpod.io/',
+    "https://8000-amiirsalimi-minibuzznew-70e3ee1oncn.ws-eu106.gitpod.io"
+    ]
 
+
+
+CORS_ORIGIN_WHITELIST = [
+    "https://amiirsalimi-minibuzznew-70e3ee1oncn.ws-eu106.gitpod.io/"
+    ]
 
 # Application definition
 
@@ -53,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
