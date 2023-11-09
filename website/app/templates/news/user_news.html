@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="wrap">
+
+        <!--hightlight news-->
+        <div class="big-page-caption">
+            <p>  #{{ news_type }}</p>
+        </div>
+
+        <div class="grids-outer">
+            <div class="grids grids-small">
+                <div class="grid">
+                    <div class="grid-container">
+                        {% for each_new in news_data %}
+                        <div class="grid-item">
+                            <article class="ciz-post">
+                                <div class="post-thumb">
+                                    <a target="_blank" href="{{ each_new.link }}">
+                                        <img alt="" src="{{ each_new.url }}" />
+                                    </a>
+                                </div>
+                                <h4 class="post-title">
+                                    <a target="_blank" href="{{ each_new.link }}">{{ each_new.title }}</a>
+                                </h4>
+                                <div class="post-meta">
+                                    <span class="post-date">
+                                        {{ each_new.published }}
+                                    </span>
+                                    <em>/</em>
+                                    <span class="post-category">
+                                        <a>{{ each_new.news_type }}</a>
+                                    </span>
+                                </div>
+                                <div class="post-des">
+                                    <p>{{ each_new.summary }}</p>
+                                </div>
+                            </article>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <!--paging-->
+        <div class="paging-outer">
+            <div class="paging">
+                {% if news_data.has_previous %}
+                <a class="page-numbers" href="?page=1">&laquo; first</a>
+                <a class="page-numbers" href="?page={{ news_data.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="page-numbers current" class="current-page">
+                    Page {{ news_data.number }} of {{ news_data.paginator.num_pages }}.
+                </span>
+
+                {% if news_data.has_next %}
+                <a class="next page-numbers" href="?page={{ news_data.next_page_number }}">next</a>
+                <a class="next page-numbers" href="?page={{ news_data.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="pagination">
+            <span class="step-links">
+                <span class="current-page">
+                    Page {{ news_data.number }} of {{ news_data.paginator.num_pages }}.
+                </span>
+            </span>
+        </div>
+    </div>
+{% endblock %}

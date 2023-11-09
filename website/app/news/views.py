@@ -6,7 +6,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, ListView
 from .forms import NewsEntryForm
-
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 
 def filter_media_images(media_content):
@@ -62,6 +63,28 @@ def news_by_type(request, news_type):
     }
     
     return render(request, "news/news.html", context)
+
+@csrf_exempt
+@login_required
+def user_news(request):
+    # Query NewsEntry objects with the given news_type
+    news_data = NewsEntry.objects.filter(user=request.user).order_by('-published').values()
+    news_data = add_url(news_data)
+    # Create a Paginator instance with a specified number of items per page
+    items_per_page = 10  # You can adjust this to your preferred number of items per page
+    paginator = Paginator(news_data, items_per_page)
+
+    # Get the current page number from the request's GET parameters
+    page = request.GET.get('page')
+
+    # Get the page content for the specified page number
+    news_entries_page = paginator.get_page(page)
+    context = {
+        'news_type': "local",
+        'news_data': news_entries_page,
+    }
+    
+    return render(request, "news/user_news.html", context)
 class NewsEntryListView(ListView):
     model = NewsEntry
     template_name = 'news_entry_list.html'
@@ -74,6 +97,7 @@ class NewsEntryCreateView(LoginRequiredMixin, CreateView):
     
     def form_valid(self, form):
         form.instance.user = self.request.user
+        form.instance.news_type = "local"
         return super().form_valid(form)
 
 # class NewsEntryUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
