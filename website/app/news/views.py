@@ -18,6 +18,7 @@ def filter_media_images(media_content):
                 filter_media.append(media)
     return filter_media
 
+
 def add_url(top_news):
     for news in top_news:
         media_content = news.get('media_content')
@@ -27,6 +28,7 @@ def add_url(top_news):
             news['url'] = media_content[random_num].get('url')
     return top_news
 
+
 def select_image(top_news):
     for news in top_news:
         media_content = news.get('media_content')
@@ -35,18 +37,19 @@ def select_image(top_news):
             news['url'] = media_content[random_num].get('url')
     return top_news
 
-# Create your views here.
+
 def home(request):
     top_news = NewsEntry.objects.order_by('-published')[:7].values()
     top_news = add_url(top_news)
     hightlight = NewsEntry.objects.order_by('-created_at')[:3].values()
     hightlight = add_url(hightlight)
-    return render(request, "news/home.html", context={"top_news":top_news, "hightlight":hightlight})
+    return render(request, "news/home.html", context={"top_news": top_news, "hightlight": hightlight})
 
 
 def news_by_type(request, news_type):
     # Query NewsEntry objects with the given news_type
-    news_data = NewsEntry.objects.filter(news_type=news_type).order_by('-published').values()
+    news_data = NewsEntry.objects.filter(
+        news_type=news_type).order_by('-published').values()
     news_data = add_url(news_data)
     # Create a Paginator instance with a specified number of items per page
     items_per_page = 10  # You can adjust this to your preferred number of items per page
@@ -61,14 +64,16 @@ def news_by_type(request, news_type):
         'news_type': news_type,
         'news_data': news_entries_page,
     }
-    
+
     return render(request, "news/news.html", context)
+
 
 @csrf_exempt
 @login_required
 def user_news(request):
     # Query NewsEntry objects with the given news_type
-    news_data = NewsEntry.objects.filter(user=request.user).order_by('-published').values()
+    news_data = NewsEntry.objects.filter(
+        user=request.user).order_by('-published').values()
     news_data = add_url(news_data)
     # Create a Paginator instance with a specified number of items per page
     items_per_page = 10  # You can adjust this to your preferred number of items per page
@@ -80,21 +85,24 @@ def user_news(request):
     # Get the page content for the specified page number
     news_entries_page = paginator.get_page(page)
     context = {
-        'news_type': "local",
+        'news_type': "Your News",
         'news_data': news_entries_page,
     }
-    
+
     return render(request, "news/user_news.html", context)
+
+
 class NewsEntryListView(ListView):
     model = NewsEntry
     template_name = 'news_entry_list.html'
+
 
 class NewsEntryCreateView(LoginRequiredMixin, CreateView):
     model = NewsEntry
     template_name = 'news/news_entry_form.html'
     success_url = reverse_lazy('news:home')
     form_class = NewsEntryForm
-    
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.instance.news_type = "local"
@@ -104,7 +112,7 @@ class NewsEntryCreateView(LoginRequiredMixin, CreateView):
 #     model = NewsEntry
 #     template_name = 'news_entry_form.html'
 #     form_class = NewsEntryForm
-    
+
 #     def test_func(self):
 #         return self.get_object().user == self.request.user
 
@@ -113,6 +121,6 @@ class NewsEntryCreateView(LoginRequiredMixin, CreateView):
 #     model = NewsEntry
 #     template_name = 'news_entry_confirm_delete.html'
 #     success_url = reverse_lazy('news-entry-list')
-    
+
 #     def test_func(self):
 #         return self.get_object().user == self.request.user
