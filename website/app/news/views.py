@@ -108,19 +108,20 @@ class NewsEntryCreateView(LoginRequiredMixin, CreateView):
         form.instance.news_type = "local"
         return super().form_valid(form)
 
-# class NewsEntryUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-#     model = NewsEntry
-#     template_name = 'news_entry_form.html'
-#     form_class = NewsEntryForm
+class NewsEntryUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = NewsEntry
+    template_name = 'news/news_entry_form.html'
+    success_url = reverse_lazy('news:user_news')
+    form_class = NewsEntryForm
 
-#     def test_func(self):
-#         return self.get_object().user == self.request.user
+    def test_func(self):
+        return self.get_object().user == self.request.user
 
 
-# class NewsEntryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-#     model = NewsEntry
-#     template_name = 'news_entry_confirm_delete.html'
-#     success_url = reverse_lazy('news-entry-list')
+class NewsEntryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = NewsEntry
+    template_name = 'news_entry_confirm_delete.html'
+    success_url = reverse_lazy('news-entry-list')
 
-#     def test_func(self):
-#         return self.get_object().user == self.request.user
+    def test_func(self):
+        return self.get_object().user == self.request.user
