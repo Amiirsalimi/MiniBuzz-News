@@ -30,6 +30,17 @@ The user or admin can login through the account page to access the local news or
 The admin can update the news through the link below by logging in to the admin portal. Then the following steps must be taken:
 https://minibuzz-e70e25b0460f.herokuapp.com/admin
 
+The admin must login through the link above:
+<img src=screenshots/feed1.png>
+The News entrys is where the admin must go.
+<img src=screenshots/feed2.png>
+Then the admin must select any of the entries.
+<img src=screenshots/feed3.png>
+After that by choosing "Fetch and Save News Data
+<img src=screenshots/feed4.png>
+
+
+
 # How the admin can post locally on the website:
 Through the account section of the website the user or admin can login to post locally on the local section of the website which is only available when someone is logged in. They can post blogs or other kinda notes which is published on the local news feed. 
 
