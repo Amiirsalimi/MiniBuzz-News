@@ -45,6 +45,20 @@ Through the account section of the website the user or admin can login to post l
 <img src=screenshots/local2.png>
 <img src=screenshots/local3.png>
 
+#How to run the project locally
+
+1. Install python
+2. create venv 
+type (python -m venv venv)
+3. activate venv
+    a. (for windows) venv/Scripts/activate
+    b.(for mac or ubuntu) venv/bin/activate
+4. Install packages:  look for file name requirements.txt
+   pip install -r requirements.txt
+5. create tables:  look for file name mange.py  
+    python manage.py migrate
+6. run the project
+    python manage.py runserver
 
 # Technologies used
 
