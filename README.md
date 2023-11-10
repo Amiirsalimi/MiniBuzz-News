@@ -1,8 +1,7 @@
 # MiniBuzz-News
 
 Website presents a website that gets news on its feed from news agency CNN through RSS as well as being able to add local news and blog posts on the website as the admin.
-This project has been done as my fourth portfolio project at Code Institue. JavaScript, HTML and CSS, , Python, Django and libraries such as bootstrap have been used in creating this website. The website has been 
-
+This project has been done as my fourth portfolio project at Code Institue. JavaScript, HTML and CSS, , Python, Django and libraries such as bootstrap have been used in creating this website. 
 The link to the website can be found below:
 
 <img src=screenshots/mockup.jpg>
