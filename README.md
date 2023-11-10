@@ -43,8 +43,8 @@ After that by choosing "Fetch and Save News Data
 # How the admin can post locally on the website:
 Through the account section of the website the user or admin can login to post locally on the local section of the website which is only available when someone is logged in. They can post blogs or other kinda notes which is published on the local news feed. (CRUD)
 <img src=screenshots/local1.png>
-<img src=screenshots/feed2.png>
-<img src=screenshots/feed3.png>
+<img src=screenshots/local2.png>
+<img src=screenshots/local3.png>
 
 
 # Technologies used
