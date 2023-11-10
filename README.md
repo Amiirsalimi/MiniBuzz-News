@@ -84,9 +84,14 @@ I deployed the website on Heroku which is the platform for my web based app.
 
 # Screenshots
 
-
-
-
-
-
-
+<img src=screenshots/sc1.jpeg>
+<img src=screenshots/sc2.jpeg>
+<img src=screenshots/sc3.jpeg>
+<img src=screenshots/sc4.jpeg>
+<img src=screenshots/sc5.jpeg>
+<img src=screenshots/sc6.jpeg>
+<img src=screenshots/sc7.jpeg>
+<img src=screenshots/sc8.jpeg>
+<img src=screenshots/sc9.jpeg>
+<img src=screenshots/sc10.jpeg>
+<img src=screenshots/sc11.jpeg>
